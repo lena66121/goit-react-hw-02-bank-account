@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 class Dashboard extends Component {
   state = {
-    balance: 5000,
+    balance: 0,
     transactions: [],
     value: '',
     deposit: 0,
@@ -37,7 +37,7 @@ class Dashboard extends Component {
     if (name === 'withdraw' && value > balance) {
       toast.error('На счету недостаточно средств для проведения операции!');
       this.reset();
-    } else if (this.state.value === '' || value === 0) {
+    } else if (this.state.value === '' || value <= 0) {
       toast.warning('Введите сумму для проведения операции!');
       this.reset();
     } else {
