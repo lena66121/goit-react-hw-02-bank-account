@@ -16,9 +16,10 @@ class Dashboard extends Component {
     withdraw: 0,
   };
 
-  handleChange = inputValue => {
+  handleChange = ({ target }) => {
+    const { value } = target;
     this.setState({
-      value: inputValue,
+      value,
     });
   };
 
@@ -80,6 +81,7 @@ class Dashboard extends Component {
           value={value}
           handleChange={this.handleChange}
           handleClick={this.handleClick}
+          onChange={this.handleChange}
         />
         <Balance balance={balance} withdraw={withdraw} deposit={deposit} />
         <TransactionHistory transactions={transactions} />
