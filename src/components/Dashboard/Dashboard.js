@@ -27,13 +27,13 @@ class Dashboard extends Component {
     const { balance } = this.state;
     const { name } = e.target;
     const value = parseFloat(this.state.value);
-    const date = new Date();
+    const date = new Date().toLocaleString();
 
     const transaction = {
       id: shortid.generate(),
       type: name,
       amount: value,
-      date: date.toLocaleString(),
+      date,
     };
     if (name === 'withdraw' && value > balance) {
       toast.error('На счету недостаточно средств для проведения операции!');
